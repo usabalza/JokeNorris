@@ -48,8 +48,7 @@ struct NetworkManager {
             // Configuración por defecto para JSON
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            
-            request.setValue(apiKey, forHTTPHeaderField: "x-cg-demo-api-key")
+
             
             // Inyectar encabezados personalizados si existen (ej. Tokens de autenticación)
             headers?.forEach { key, value in

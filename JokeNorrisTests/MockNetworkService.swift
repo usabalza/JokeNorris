@@ -11,6 +11,7 @@ import Foundation
 final class MockChuckNorrisService: ServiceProtocol {
     
     var mockJoke: JokeDTO?
+    var mockSearchResult: SearchResultDTO?
     var mockCategories: [String] = []
     var shouldThrowError = false
     
@@ -41,13 +42,13 @@ final class MockChuckNorrisService: ServiceProtocol {
         throw URLError(.badServerResponse)
     }
     
-    func searchJoke(query: String) async throws -> [JokeDTO] {
+    func searchJokes(query: String) async throws -> SearchResultDTO {
         if shouldThrowError {
             throw URLError(.notConnectedToInternet)
         }
-        if let mockJoke = mockJoke {
-            return [mockJoke]
+        if let mockSearchResult = mockSearchResult {
+            return mockSearchResult
         }
-        throw URLError(.badServerResponse)
+        return SearchResultDTO(total: 0, result: [])
     }
 }

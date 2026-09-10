@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JokeDTO: Codable, Equatable {
+struct JokeDTO: Codable, Equatable, Identifiable {
     let id: String
     let value: String
     let icon_url: String

@@ -11,7 +11,7 @@ protocol ServiceProtocol {
     @MainActor func fetchRandomJoke(category: String?) async throws -> JokeDTO
     @MainActor func fetchCategories() async throws -> [String]
     @MainActor func fetchJokeByCategory(category: String) async throws -> JokeDTO
-    @MainActor func searchJoke(query: String) async throws -> [JokeDTO]
+    @MainActor func searchJokes(query: String) async throws -> SearchResultDTO
 }
 
 class APIServices: ServiceProtocol {
@@ -29,7 +29,7 @@ class APIServices: ServiceProtocol {
         return try await networkManager.request(endpoint: Endpoints.categoryJoke(category: category).urlString)
     }
     
-    func searchJoke(query: String) async throws -> [JokeDTO] {
+    func searchJokes(query: String) async throws -> SearchResultDTO {
         return try await networkManager.request(endpoint: Endpoints.search(query: query).urlString)
     }
     

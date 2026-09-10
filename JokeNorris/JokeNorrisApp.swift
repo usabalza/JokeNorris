@@ -8,11 +8,28 @@
 import SwiftUI
 import SwiftData
 
-@main
-struct JokeNorrisApp: App {
-    var body: some Scene {
-        WindowGroup {
-            EmptyView()
+struct MainTabView: View {
+    var body: some View {
+        TabView {
+            RandomJokeView()
+                .tabItem { Label("Al Azar", systemImage: "quote.bubble.fill") }
+            
+            CategoriesListView()
+                .tabItem { Label("Categorías", systemImage: "list.bullet") }
+            
+            FavoritesListView()
+                .tabItem { Label("Favoritos", systemImage: "heart.fill") }
         }
     }
 }
+
+@main
+struct ChuckNorrisApp: App {
+    var body: some Scene {
+        WindowGroup {
+            MainTabView()
+        }
+        .modelContainer(for: FavoriteJoke.self)
+    }
+}
+

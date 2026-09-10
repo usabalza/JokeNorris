@@ -16,6 +16,10 @@ struct CategoriesListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var favorites: [FavoriteJoke]
     
+    init() {
+        self._viewModel = StateObject(wrappedValue: CategoriesListViewModel())
+    }
+    
     var body: some View {
         NavigationStack {
             List(viewModel.categories, id: \.self) { category in

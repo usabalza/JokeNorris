@@ -14,7 +14,7 @@ struct MainTabView: View {
             RandomJokeView(viewModel: RandomJokeViewModel())
                 .tabItem { Label("Al Azar", systemImage: "quote.bubble.fill") }
             
-            CategoriesListView(viewModel: CategoriesListViewModel())
+            CategoriesListView()
                 .tabItem { Label("Categorías", systemImage: "list.bullet") }
             
             FavoritesListView()

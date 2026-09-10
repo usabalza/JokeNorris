@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-final class CategoriesListViewModel: ObservableObject {
+class CategoriesListViewModel: ObservableObject {
     @Published var categories: [String] = []
     @Published var selectedCategory: String = ""
     @Published var currentJoke: JokeDTO? = nil

@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct RandomJokeView: View {
-    @State private var viewModel = RandomJokeViewModel()
+    @StateObject var viewModel: RandomJokeViewModel
     @Environment(\.modelContext) private var modelContext
     @Query private var favorites: [FavoriteJoke]
     

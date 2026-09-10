@@ -11,10 +11,10 @@ import SwiftData
 struct MainTabView: View {
     var body: some View {
         TabView {
-            RandomJokeView()
+            RandomJokeView(viewModel: RandomJokeViewModel())
                 .tabItem { Label("Al Azar", systemImage: "quote.bubble.fill") }
             
-            CategoriesListView()
+            CategoriesListView(viewModel: CategoriesListViewModel())
                 .tabItem { Label("Categorías", systemImage: "list.bullet") }
             
             FavoritesListView()

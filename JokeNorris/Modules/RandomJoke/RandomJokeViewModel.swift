@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import Observation
+import Combine
 
-@Observable
-final class RandomJokeViewModel {
-    var currentJoke: JokeDTO?
-    var isLoading = false
-    var errorMessage: String?
+class RandomJokeViewModel: ObservableObject {
+    @Published var currentJoke: JokeDTO? = nil
+    @Published var isLoading = false
+    @Published var errorMessage: String? = nil
     
     private let service: ServiceProtocol
     
